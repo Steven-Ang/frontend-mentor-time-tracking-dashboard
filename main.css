@@ -6,4 +6,166 @@
   padding: 0;
 }
 
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+}
 
+ul {
+  list-style-type: none;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  background-color: hsl(226, 43%, 10%);
+  color: white;
+  font-family: "Rubik", sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  width: 90%;
+  margin: 2em 0;
+}
+
+.card-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+}
+
+.main-card {
+  cursor: pointer;
+}
+
+.main-card-background {
+  background: hsl(246, 80%, 60%);
+}
+
+.main-card-background-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1em;
+  padding: 1em 0;
+}
+
+.avatar {
+  width: 100px;
+  height: 100px;
+  border: 5px solid white;
+  border-radius: 100%;
+}
+
+.main-card .content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2em;
+}
+
+.report-for {
+  opacity: 0.7;
+}
+
+.username {
+  font-size: 2em;
+  font-weight: 300;
+}
+
+.main-card .card-content {
+  background-color: hsl(235, 46%, 20%);
+}
+
+.toggle-buttons-list {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em 2em;
+}
+
+.toggle-button {
+  opacity: 0.7;
+  background: none;
+  border: none;
+  color: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+.toggle-button.active {
+  opacity: 1;
+}
+
+.toggle-button:hover {
+  opacity: 1;
+}
+
+.card {
+  cursor: pointer;
+}
+
+.card .card-content {
+  padding: 1em;
+  /* border-radius: 20px 20px 0 0; */
+  background-color: hsl(235, 46%, 20%);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.card-content-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.icon-ellipsis {
+  width: 30px;
+  height: 7px;
+}
+
+.card-content-weeks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-background {
+  height: 20px;
+}
+
+.card-background.work {
+  background-color: hsl(15, 100%, 70%);
+}
+
+.card-background.play {
+  background-color: hsl(195, 74%, 62%);
+}
+
+.card-background.study {
+  background-color: hsl(348, 100%, 68%);
+}
+
+.card-background.exercise {
+  background-color: hsl(145, 58%, 55%);
+}
+
+.card-background.social {
+  background-color: hsl(264, 64%, 52%);
+}
+
+.card-background.self-care {
+  background-color: hsl(43, 84%, 65%);
+}
+
+.current-week {
+  font-size: 2em;
+}
+
+.previous-week {
+  opacity: 0.7;
+}

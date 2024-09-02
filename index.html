@@ -1,13 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
-  <title>Frontend Mentor | Time tracking dashboard</title>
-  <link rel="stylesheet" href="main.css">
-</head>
-<body>
-  <script src="main.css"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <title>Frontend Mentor | Time tracking dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="main.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="main-card">
+        <div class="main-card-background">
+          <div class="main-card-background-content">
+            <div class="avatar-container">
+              <img src="images/image-jeremy.png" alt="Jeremy" class="avatar" />
+            </div>
+            <div class="content">
+              <p class="report-for">Report for</p>
+              <h2 class="username">Jeremy Robson</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card-content">
+          <div class="toggle-buttons-list">
+            <button class="toggle-button">Daily</button>
+            <button class="toggle-button">Weekly</button>
+            <button class="toggle-button">Monthly</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-list"></div>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>
