@@ -29,7 +29,7 @@ const renderCards = async (type) => {
     const tagClassName = title.toLowerCase().split(" ").join("-");
 
     const card = document.createElement("div");
-    card.classList.add("card");
+    card.classList.add("card", tagClassName);
     card.innerHTML = `
       <div class="card-background ${tagClassName}"></div>
       <div class="card-content">
@@ -56,16 +56,19 @@ const handleToggle = (event) => {
 
   previousActiveButton = currentActiveButton;
   previousActiveButton.classList.toggle("active");
+  previousActiveButton.toggleAttribute("disabled");
 
   currentActiveButton = event.target;
   currentActiveButton.classList.toggle("active");
-  
+  currentActiveButton.toggleAttribute("disabled");
+
   renderCards(currentActiveButton.textContent.toLowerCase());
 };
 
 document.addEventListener("DOMContentLoaded", async () => {
   currentActiveButton = toggleButtons.children.item(1);
   currentActiveButton.classList.toggle("active");
+  currentActiveButton.toggleAttribute("disabled");
 
   renderCards("weekly");
 });
