@@ -31,6 +31,7 @@ body {
   gap: 1em;
   width: 90%;
   margin: 2em 0;
+  min-height: 100vh;
 }
 
 .card-list {
@@ -41,10 +42,13 @@ body {
 
 .main-card {
   cursor: pointer;
+  background-color: hsl(235, 46%, 20%);
+  border-radius: 1em;
 }
 
 .main-card-background {
   background: hsl(246, 80%, 60%);
+  border-radius: 1em;
 }
 
 .main-card-background-content {
@@ -78,6 +82,7 @@ body {
 }
 
 .main-card .card-content {
+  border-radius: 1em;
   background-color: hsl(235, 46%, 20%);
 }
 
@@ -104,17 +109,22 @@ body {
   opacity: 1;
 }
 
+.card-list .card:last-child {
+  margin-bottom: 2em;
+}
+
 .card {
+  border-radius: 1em;
   cursor: pointer;
 }
 
 .card .card-content {
   padding: 1em;
-  /* border-radius: 20px 20px 0 0; */
   background-color: hsl(235, 46%, 20%);
   display: flex;
   flex-direction: column;
   gap: 0.5em;
+  border-radius: 1em 1em 0.8em 0.8em;
 }
 
 .card-content-labels {
@@ -135,31 +145,64 @@ body {
 }
 
 .card-background {
-  height: 20px;
+  height: 2.4em;
+  border-radius: 1em;
+  background-repeat: no-repeat;
+  background-position: 95% 15%;
 }
 
-.card-background.work {
+.card.work,
+.card.work .card-background {
   background-color: hsl(15, 100%, 70%);
 }
 
-.card-background.play {
+.card.work .card-background {
+  background-image: url(images/icon-work.svg);
+}
+
+.card.play,
+.card.play .card-background {
   background-color: hsl(195, 74%, 62%);
 }
 
-.card-background.study {
+.card.play .card-background {
+  background-image: url(images/icon-play.svg);
+}
+
+.card.study,
+.card.study .card-background {
   background-color: hsl(348, 100%, 68%);
 }
 
-.card-background.exercise {
+.card.study .card-background {
+  background-image: url(images/icon-study.svg);
+}
+
+.card.exercise,
+.card.exercise .card-background {
   background-color: hsl(145, 58%, 55%);
 }
 
-.card-background.social {
+.card.exercise .card-background {
+  background-image: url(images/icon-exercise.svg);
+}
+
+.card.social,
+.card.social .card-background {
   background-color: hsl(264, 64%, 52%);
 }
 
-.card-background.self-care {
+.card.social .card-background {
+  background-image: url(images/icon-social.svg);
+}
+
+.card.self-care,
+.card.self-care .card-background {
   background-color: hsl(43, 84%, 65%);
+}
+
+.card.self-care .card-background {
+  background-image: url(images/icon-self-care.svg);
 }
 
 .current-week {
