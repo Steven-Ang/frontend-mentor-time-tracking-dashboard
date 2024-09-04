@@ -1,79 +1,86 @@
+:root {
+  --primary: hsl(246, 80%, 60%);
+
+  --light-red-1: hsl(15, 100%, 70%);
+  --soft-blue: hsl(195, 74%, 62%);
+  --light-red-2: hsl(348, 100%, 68%);
+  --lime-green: hsl(145, 58%, 55%);
+  --violet: hsl(264, 64%, 52%);
+  --soft-orange: hsl(43, 84%, 65%);
+
+  --neutral-1: hsl(226, 43%, 10%);
+  --neutral-2: hsl(235, 46%, 20%);
+  --neutral-3: hsl(235, 45%, 61%);
+  --neutral-4: hsl(236, 100%, 87%);
+
+  --main-font-size: 18px;
+  --main-font-family: "Rubik", sans-serif;
+}
+
 *,
 *::before,
 *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-weight: normal;
+  font-size: var(--main-font-size);
 }
 
 html,
 body {
   width: 100%;
   height: 100%;
-  font-size: 18px;
 }
 
 ul {
   list-style-type: none;
 }
 
+button {
+  border: none;
+  background: none;
+  color: inherit;
+  font-size: inherit;
+}
+
 body {
-  display: flex;
-  justify-content: center;
-  background-color: hsl(226, 43%, 10%);
+  display: grid;
+  place-items: center;
+  background-color: var(--neutral-1);
   color: white;
-  font-family: "Rubik", sans-serif;
+  font-family: var(--main-font-family);
 }
 
 .container {
   display: flex;
   flex-direction: column;
-  gap: 1em;
-  width: 90%;
   margin: 2em 0;
-  min-height: 100vh;
+  gap: 1em;
 }
 
-.card-list {
+.card-avatar {
   display: flex;
   flex-direction: column;
-  gap: 1em;
-}
-
-.main-card {
+  background-color: var(--neutral-2);
+  border-radius: 1em;
   cursor: pointer;
-  background-color: hsl(235, 46%, 20%);
-  border-radius: 1em;
 }
 
-.main-card-background {
-  background: hsl(246, 80%, 60%);
-  border-radius: 1em;
-}
-
-.main-card-background-content {
+.card-avatar .card-top {
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 1em;
-  padding: 1em 0;
+  background-color: var(--primary);
+  padding: 2em;
+  border-radius: 1em;
 }
 
 .avatar {
   width: 100px;
   height: 100px;
-  border: 5px solid white;
   border-radius: 100%;
-}
-
-.main-card .content {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2em;
-}
-
-.report-for {
-  opacity: 0.7;
+  border: 5px solid white;
 }
 
 .username {
@@ -81,128 +88,82 @@ body {
   font-weight: 300;
 }
 
-.main-card .card-content {
-  border-radius: 1em;
-  background-color: hsl(235, 46%, 20%);
+.report-for {
+  color: var(--neutral-4);
 }
 
-.toggle-buttons-list {
+.card-avatar .card-bottom {
   display: flex;
   justify-content: space-between;
-  padding: 1em 2em;
+  padding: 2em;
 }
 
 .toggle-button {
-  opacity: 0.7;
-  background: none;
-  border: none;
-  color: inherit;
-  font-size: inherit;
+  color: var(--neutral-3);
   cursor: pointer;
 }
 
 .toggle-button.active {
-  opacity: 1;
+  color: white;
 }
 
 .toggle-button:hover {
-  opacity: 1;
+  color: white;
 }
 
-.card-list .card:last-child {
+.card-list {
+  display: grid;
+  gap: 1em;
   margin-bottom: 2em;
 }
 
 .card {
-  border-radius: 1em;
-  cursor: pointer;
-}
-
-.card .card-content {
-  padding: 1em;
-  background-color: hsl(235, 46%, 20%);
+  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.5em;
-  border-radius: 1em 1em 0.8em 0.8em;
-}
-
-.card-content-labels {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.icon-ellipsis {
-  width: 30px;
-  height: 7px;
-}
-
-.card-content-weeks {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.card-background {
-  height: 2.4em;
+  gap: 1em;
   border-radius: 1em;
-  background-repeat: no-repeat;
-  background-position: 95% 15%;
+  overflow: hidden;
+  cursor: pointer;
+  justify-content: space-between;
+  height: 100%;
 }
 
-.card.work,
-.card.work .card-background {
-  background-color: hsl(15, 100%, 70%);
+.card .card-top {
+  padding: 10px;
 }
 
-.card.work .card-background {
-  background-image: url(images/icon-work.svg);
+.card-image {
+  position: absolute;
+  top: -5px;
+  right: 20px;
 }
 
-.card.play,
-.card.play .card-background {
-  background-color: hsl(195, 74%, 62%);
+.card .card-bottom {
+  position: relative;
+  display: flex;
+  background-color: var(--neutral-2);
+  flex-direction: column;
+  padding: 2em;
+  gap: 1em;
+  border-radius: 1em 1em 0.7em 0.5em;
+  height: 100%;
 }
 
-.card.play .card-background {
-  background-image: url(images/icon-play.svg);
+.card > .card-bottom:hover {
+  filter: brightness(1.2);
 }
 
-.card.study,
-.card.study .card-background {
-  background-color: hsl(348, 100%, 68%);
+.card .card-bottom .card-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
-.card.study .card-background {
-  background-image: url(images/icon-study.svg);
-}
-
-.card.exercise,
-.card.exercise .card-background {
-  background-color: hsl(145, 58%, 55%);
-}
-
-.card.exercise .card-background {
-  background-image: url(images/icon-exercise.svg);
-}
-
-.card.social,
-.card.social .card-background {
-  background-color: hsl(264, 64%, 52%);
-}
-
-.card.social .card-background {
-  background-image: url(images/icon-social.svg);
-}
-
-.card.self-care,
-.card.self-care .card-background {
-  background-color: hsl(43, 84%, 65%);
-}
-
-.card.self-care .card-background {
-  background-image: url(images/icon-self-care.svg);
+.card .card-weeks {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .current-week {
@@ -210,5 +171,72 @@ body {
 }
 
 .previous-week {
-  opacity: 0.7;
+  font-size: 0.8em;
+  color: var(--neutral-4);
+}
+
+.card.work {
+  background-color: var(--light-red-1);
+}
+
+.card.work .card-image {
+  content: url("images/icon-work.svg");
+}
+
+.card.play {
+  background-color: var(--soft-blue);
+}
+
+.card.study {
+  background-color: var(--light-red-2);
+}
+
+.card.exercise {
+  background-color: var(--lime-green);
+}
+
+.card.social {
+  background-color: var(--violet);
+}
+
+.card.self-care {
+  background-color: var(--soft-orange);
+}
+
+@media only screen and (min-width: 1020px) {
+  .container {
+    flex-direction: row;
+  }
+
+  .card-avatar {
+    max-width: 300px;
+  }
+
+  .card-avatar .card-top {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 1em 2em;
+    flex: 1;
+  }
+
+  .card-avatar .card-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2em;
+  }
+
+  .card-list {
+    margin-bottom: 0;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card {
+    width: 250px;
+  }
+
+  .card .card-weeks {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+  }
 }

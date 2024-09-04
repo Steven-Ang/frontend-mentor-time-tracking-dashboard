@@ -13,37 +13,41 @@ const renderCards = async (type) => {
   for (const item of data) {
     const { title, timeframes } = item;
 
-    const currentWeek =
+    const current =
       type === "weekly"
         ? timeframes.weekly.current
         : type === "daily"
         ? timeframes.daily.current
         : timeframes.monthly.current;
-    const previousWeek =
+    const previous =
       type === "weekly"
         ? timeframes.weekly.previous
         : type === "daily"
         ? timeframes.daily.previous
         : timeframes.monthly.previous;
+    const previousLabel =
+      type === "weekly"
+        ? "Last Week - "
+        : type === "daily"
+        ? "Yesterday - "
+        : "Last Month - ";
 
-    const tagClassName = title.toLowerCase().split(" ").join("-");
+    const tagClassName = title.toLowerCase().replace(" ", "-")
 
     const card = document.createElement("div");
     card.classList.add("card", tagClassName);
     card.innerHTML = `
-      <div class="card-background ${tagClassName}"></div>
-      <div class="card-content">
-        <div class="card-content-labels">
-          <div class="card-label">${title}</div>
-          <img
-            src="images/icon-ellipsis.svg"
-            alt="Ellipsis icon"
-            class="icon-ellipsis"
-          />
+      <div class="card-top">
+        <img class="card-image" alt="${title}" src="images/icon-${tagClassName}.svg" />
+      </div>
+      <div class="card-bottom">
+        <div class="card-labels">
+          <span class="card-label">${title}</span>
+            <svg class="icon-ellipsis" width="21" height="5" xmlns="http://www.w3.org/2000/svg"><path d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z" fill="#BBC0FF" fill-rule="evenodd"/></svg>
         </div>
-        <div class="card-content-weeks">
-          <p class="current-week">${currentWeek}hrs</p>
-          <p class="previous-week">Last week - ${previousWeek}hrs</p>
+        <div class="card-weeks">
+          <p class="current-week">${current}hrs</p>
+          <p class="previous-week">${previousLabel}${previous}hrs</p>
         </div>
       </div>
     `;
